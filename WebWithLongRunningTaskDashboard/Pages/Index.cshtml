@@ -1,0 +1,48 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <button class="btn btn-primary">Start the Process</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <main role="main" class="pb-3">
+        <h3>Long-running Process Simulator</h3>
+        <p>Click the button at the top of the page to start a long-running process on the server. As this process completes, you will see updates.</p>
+    </main>
+    <div class="card-deck">
+        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Step 1</div>
+            <div class="card-body">
+                <h5 class="card-title">First Step</h5>
+                <p class="card-text">This is the first step in a background process.</p>
+            </div>
+        </div>
+        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Step 2</div>
+            <div class="card-body">
+                <h5 class="card-title">Second Step</h5>
+                <p class="card-text">As the steps complete, these cards will turn green to show each phase of the process completing.</p>
+            </div>
+        </div>
+        <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Step 3</div>
+            <div class="card-body">
+                <h5 class="card-title">Final Step</h5>
+                <p class="card-text">Once this box turns green the process has fully completed.</p>
+            </div>
+        </div>
+    </div>
+</div>
