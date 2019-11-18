@@ -1,0 +1,56 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Space Game";
+}
+
+<style>
+#ship {
+  position: absolute;
+  cursor: pointer;
+}
+</style>
+
+<img src="css/rebels-on.png" alt="space ship" id="ship"/>
+
+<script src="~/js/signalr.js"></script>
+<script>
+  var isDown = false;
+
+  // create our connection to the GameHub
+  var connection = new signalR.HubConnectionBuilder()
+    .withUrl('gameHub')
+    .build();
+
+  // handle the shipMoved event when the server pushes it to us
+  connection.on('shipMoved', (y, x) => {
+    document.getElementById('ship').style.top = y;
+    document.getElementById('ship').style.left = x;
+  });
+
+  // start the connection
+  async function start() {
+    await connection.start();
+  }
+  
+  // click the ship to select it
+  document.getElementById('ship').onclick = (ev) => isDown = !isDown;
+
+  // once the ship is selected it will follow my mouse
+  document.getElementById('ship').onmousemove = (ev) => moveTheShip(ev);
+
+  // this method actually moves the ship
+  moveTheShip = (ev) => {
+    if(isDown == true) {
+      document.getElementById('ship').style.top = ev.pageY-128 + 'px';
+      document.getElementById('ship').style.left = ev.pageX-128 + 'px';
+      
+      // invoke the MoveShip method on the hub
+      connection.invoke('MoveShip', 
+        document.getElementById('ship').style.top, 
+        document.getElementById('ship').style.left);
+    }
+  }
+
+start();
+</script>

@@ -1,0 +1,32 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Space Game";
+}
+
+<style>
+#ship {
+  position: absolute;
+  cursor: pointer;
+}
+</style>
+
+<img src="css/rebels-on.png" alt="space ship" id="ship"/>
+
+<script>
+  var isDown = false;
+
+  // click the ship to select it
+  document.getElementById('ship').onclick = (ev) => isDown = !isDown;
+
+  // once the ship is selected it will follow my mouse
+  document.getElementById('ship').onmousemove = (ev) => moveTheShip(ev);
+
+  // this method actually moves the ship
+  moveTheShip = (ev) => {
+    if(isDown == true) {
+      document.getElementById('ship').style.top = ev.pageY-128 + 'px';
+      document.getElementById('ship').style.left = ev.pageX-128 + 'px';
+    }
+  }
+</script>
