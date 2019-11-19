@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>dotnet-Worker-389016C4-8560-40A9-B9EF-77F99C280BE0</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.0-preview3.19553.2" />
+    <PackageReference Include="Microsoft.Azure.Storage.Queue" Version="11.1.0" />
+  </ItemGroup>
+</Project>

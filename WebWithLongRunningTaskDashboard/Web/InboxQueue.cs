@@ -60,7 +60,7 @@ namespace WebWithLongRunningTaskDashboard
                 Logger.LogInformation("Request enqueued");
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
