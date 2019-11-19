@@ -5,6 +5,14 @@
     <NpmInstallStampFile>node_modules/.install-stamp</NpmInstallStampFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\media\" />
+    <Folder Include="wwwroot\media\skybox\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\media\skybox\nz.jpg" />
+    <Content Remove="wwwroot\media\skybox\px.jpg" />
+  </ItemGroup>
   <Target Name="NpmInstall" BeforeTargets="BeforeBuild" Inputs="package.json" Outputs="$(NpmInstallStampFile)">
     <Exec Command="npm install @microsoft/signalr" />
     <Exec Command="cp node_modules/@microsoft/signalr/dist/browser/*.js wwwroot/js" />
