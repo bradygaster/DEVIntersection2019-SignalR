@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <NpmInstallStampFile>node_modules/.install-stamp</NpmInstallStampFile>
+  </PropertyGroup>
+
+  <Target Name="NpmInstall" BeforeTargets="BeforeBuild" Inputs="package.json" Outputs="$(NpmInstallStampFile)">
+    <Exec Command="npm install @microsoft/signalr" />
+    <Exec Command="cp node_modules/@microsoft/signalr/dist/browser/*.js wwwroot/js" />
+    <Touch Files="$(NpmInstallStampFile)" AlwaysCreate="true" />
+  </Target>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'WebWithLongRunningTaskDashboard' ">
+    <StartAction>Project</StartAction>
+    <ApplicationURL>http://localhost:5000;https://localhost:5001</ApplicationURL>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Storage.Queue" Version="11.1.0" />
+  </ItemGroup>
+    
+
+
+
+</Project>

@@ -18,6 +18,7 @@ namespace WebWithLongRunningTaskDashboard
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    services.AddProcessHubClient();
                     services.AddInboxQueueSupport();
                     services.AddHostedService<Worker>();
                 });
