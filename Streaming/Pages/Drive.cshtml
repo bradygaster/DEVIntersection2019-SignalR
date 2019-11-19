@@ -5,11 +5,20 @@
 }
 
 <div class="container">
-    <main role="main" class="pb-3">     
+    <main role="main" class="pb-3">
         <div id="alpha">0</div>
         <div id="beta">0</div>
         <div id="gamma">0</div>
 
         <button onclick="onClick();">Start</button>
+        <button onclick="onFakeClick();">Start Fakes</button>
     </main>
 </div>
+
+@section scripts
+{
+    <script>
+        var isControlPanel = true;
+        startConnection();
+    </script>
+}
