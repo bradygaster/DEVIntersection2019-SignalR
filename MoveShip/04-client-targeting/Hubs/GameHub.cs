@@ -7,7 +7,7 @@ namespace RealTimeForAll.Hubs
     {
         public async Task MoveShip(string y, string x)
         {
-            await Clients.Others.SendAsync("shipMoved", y, x);
+            await Clients.All.SendAsync("shipMoved", y, x);
         }
     }
 }
